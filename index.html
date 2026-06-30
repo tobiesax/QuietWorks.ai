@@ -469,6 +469,17 @@
     .form-status-dot { width:7px; height:7px; background:var(--border-mid); border-radius:50%; transition:background .4s; }
     .form-status-dot.active { background:var(--forest); animation:pip 1.5s ease-in-out infinite; }
     .form-success { display:none; font-family:'Cormorant Garamond',serif; font-size:18px; font-style:italic; color:var(--forest); padding:20px 0; }
+    .form-options { display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
+    .form-option { position:relative; }
+    .form-option input { position:absolute; opacity:0; width:0; height:0; }
+    .form-option label {
+      display:block; padding:8px 14px;
+      font-family:'DM Sans',sans-serif; font-size:13.5px; font-weight:300; color:var(--ink-mid);
+      border:1px solid var(--border-mid); background:var(--bg);
+      cursor:pointer; transition:border-color .18s, color .18s, background .18s; user-select:none;
+    }
+    .form-option label:hover { border-color:var(--ink-dim); color:var(--ink); }
+    .form-option input:checked + label { border-color:var(--forest); color:var(--forest); background:rgba(40,69,58,.06); }
 
     /* ══════════════════════════
        FINAL CTA
@@ -977,7 +988,34 @@
               <option>Full Automation — R5,800/mo</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Anything else we should know? (optional)</label><textarea class="form-textarea" name="message" placeholder="E.g. I already have a website, or I get most leads by phone…"></textarea></div>
+          <div class="form-group">
+            <label class="form-label">Do you currently have a website?</label>
+            <div class="form-options">
+              <div class="form-option"><input type="radio" name="website_status" id="ws1" value="No — need one built from scratch"><label for="ws1">No — need one built</label></div>
+              <div class="form-option"><input type="radio" name="website_status" id="ws2" value="Yes — needs redesigning"><label for="ws2">Yes — needs redesigning</label></div>
+              <div class="form-option"><input type="radio" name="website_status" id="ws3" value="Yes — just need the automation layer"><label for="ws3">Yes — just need the automation</label></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">How do customers find you today? <em style="font-style:italic;text-transform:none;letter-spacing:0;font-size:9px;color:var(--ink-dim)">(pick all that apply)</em></label>
+            <div class="form-options">
+              <div class="form-option"><input type="checkbox" name="lead_sources" id="ls1" value="Word of mouth"><label for="ls1">Word of mouth</label></div>
+              <div class="form-option"><input type="checkbox" name="lead_sources" id="ls2" value="Walk-ins"><label for="ls2">Walk-ins</label></div>
+              <div class="form-option"><input type="checkbox" name="lead_sources" id="ls3" value="Social media"><label for="ls3">Social media</label></div>
+              <div class="form-option"><input type="checkbox" name="lead_sources" id="ls4" value="Google search"><label for="ls4">Google search</label></div>
+              <div class="form-option"><input type="checkbox" name="lead_sources" id="ls5" value="I don't get consistent leads"><label for="ls5">I don't get consistent leads</label></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">What's the main thing holding your business back?</label>
+            <div class="form-options">
+              <div class="form-option"><input type="radio" name="main_challenge" id="mc1" value="People can't find me online"><label for="mc1">People can't find me online</label></div>
+              <div class="form-option"><input type="radio" name="main_challenge" id="mc2" value="Leads come in but I don't follow up fast enough"><label for="mc2">Leads come in but I don't follow up fast enough</label></div>
+              <div class="form-option"><input type="radio" name="main_challenge" id="mc3" value="My online reputation needs work"><label for="mc3">My online reputation needs work</label></div>
+              <div class="form-option"><input type="radio" name="main_challenge" id="mc4" value="Too much admin, not enough automation"><label for="mc4">Too much admin, not enough automation</label></div>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Anything specific we should know? <em style="font-style:italic;text-transform:none;letter-spacing:0;font-size:9px;color:var(--ink-dim)">(optional)</em></label><textarea class="form-textarea" name="message" placeholder="E.g. I want a loyalty programme, I run two locations, seasonal business…" style="min-height:72px"></textarea></div>
           <div class="form-submit-row">
             <button class="btn btn-forest" type="submit">Submit — get my recommendation</button>
             <div class="form-status" id="form-status"><span class="form-status-dot" id="status-dot"></span><span id="status-text">awaiting submission</span></div>
@@ -1167,15 +1205,21 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   dot.classList.add('active');
   txt.textContent = 'processing…';
 
+  const leadSources = Array.from(form.querySelectorAll('[name="lead_sources"]:checked'))
+    .map(el => el.value).join(', ') || 'Not specified';
+
   const payload = {
     name,
-    business:  form.querySelector('[name="business"]').value.trim(),
-    industry:  form.querySelector('[name="industry"]').value || 'Not specified',
+    business:        form.querySelector('[name="business"]').value.trim(),
+    industry:        form.querySelector('[name="industry"]').value || 'Not specified',
     contact,
-    tier:      form.querySelector('[name="tier"]').value || 'Not sure yet',
-    message:   form.querySelector('[name="message"]').value.trim(),
-    submitted: new Date().toISOString(),
-    source:    window.location.href
+    tier:            form.querySelector('[name="tier"]').value || 'Not sure yet',
+    website_status:  form.querySelector('[name="website_status"]:checked')?.value || 'Not specified',
+    lead_sources:    leadSources,
+    main_challenge:  form.querySelector('[name="main_challenge"]:checked')?.value || 'Not specified',
+    message:         form.querySelector('[name="message"]').value.trim(),
+    submitted:       new Date().toISOString(),
+    source:          window.location.href
   };
 
   try {
