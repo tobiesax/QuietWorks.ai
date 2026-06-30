@@ -92,10 +92,16 @@
     .btn-parchment:hover { background:#fff; transform:translateY(-1px); }
     .btn .arrow { transition:transform .2s; }
     .btn:hover .arrow { transform:translateX(4px); }
-    .link-ghost { font-size:14px; color:var(--ink-dim); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:color .18s,border-color .18s; }
+    .link-ghost { font-size:14px; color:var(--ink-dim); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:color .18s,border-color .18s; display:inline-flex; align-items:center; gap:6px; }
     .link-ghost:hover { color:var(--amber); border-color:var(--amber); }
-    .link-ghost-dark { font-size:13px; color:rgba(242,237,227,.4); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.12); padding-bottom:2px; transition:color .18s,border-color .18s; }
+    .link-ghost-dark { font-size:13px; color:rgba(242,237,227,.4); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.12); padding-bottom:2px; transition:color .18s,border-color .18s; display:inline-flex; align-items:center; gap:6px; }
     .link-ghost-dark:hover { color:var(--amber); border-color:var(--amber); }
+    @keyframes nudge-down { 0%,60%,100%{transform:translateY(0)} 80%{transform:translateY(4px)} }
+    @keyframes nudge-right { 0%,60%,100%{transform:translateX(0)} 80%{transform:translateX(5px)} }
+    .link-arrow { display:inline-block; animation-duration:3s; animation-timing-function:ease-in-out; animation-delay:2s; animation-iteration-count:infinite; }
+    .link-ghost .link-arrow { animation-name:nudge-down; }
+    .link-ghost-dark .link-arrow { animation-name:nudge-right; }
+    .link-ghost:hover .link-arrow, .link-ghost-dark:hover .link-arrow { animation:none; }
 
     /* ══════════════════════════
        NAV
@@ -107,7 +113,7 @@
       padding:16px 56px; border-bottom:1px solid var(--border-mid);
       animation:fadeDown .5s ease-out both;
     }
-    .wordmark { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; letter-spacing:.06em; color:var(--ink); text-decoration:none; margin-right:auto; }
+    .wordmark { font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; letter-spacing:.06em; color:var(--ink); text-decoration:none; margin-right:auto; }
     .wordmark-dot { color:var(--amber); }
     .wordmark-works { color:var(--amber); }
     .nav-links { list-style:none; display:flex; align-items:center; gap:28px; }
@@ -625,7 +631,7 @@
           Get Your Free Growth Audit
           <svg class="arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="link-ghost" href="#how">See the signal live ↓</a>
+        <a class="link-ghost" href="#how">See the signal live <span class="link-arrow">↓</span></a>
       </div>
     </div>
 
@@ -1110,7 +1116,7 @@
           Get Your Free Growth Audit
           <svg class="arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="link-ghost-dark" href="#contact">Book a 20-min call instead</a>
+        <a class="link-ghost-dark" href="#contact">Book a 20-min call instead <span class="link-arrow">→</span></a>
       </div>
     </div>
   </div>
