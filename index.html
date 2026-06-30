@@ -790,10 +790,10 @@
 <!-- PROOF BAR -->
 <div class="proof-bar section-wrap">
   <div class="proof-inner">
-    <div class="proof-stat" data-reveal><p class="proof-num">200<sup>+</sup></p><p class="proof-desc">Local businesses<br>running on QuietWorks</p></div>
-    <div class="proof-stat" data-reveal data-delay="1"><p class="proof-num">R42<sup>M</sup></p><p class="proof-desc">In leads tracked<br>across client accounts</p></div>
-    <div class="proof-stat" data-reveal data-delay="2"><p class="proof-num">4.1<sup>×</sup></p><p class="proof-desc">Average return<br>on ad spend</p></div>
-    <div class="proof-stat" data-reveal data-delay="3"><p class="proof-num">99<sup>%</sup></p><p class="proof-desc">Dashboard uptime<br>— always watching</p></div>
+    <div class="proof-stat" data-reveal><p class="proof-num"><span class="count-num" data-target="200">200</span><sup>+</sup></p><p class="proof-desc">Local businesses<br>running on QuietWorks</p></div>
+    <div class="proof-stat" data-reveal data-delay="1"><p class="proof-num">R<span class="count-num" data-target="42">42</span><sup>M</sup></p><p class="proof-desc">In leads tracked<br>across client accounts</p></div>
+    <div class="proof-stat" data-reveal data-delay="2"><p class="proof-num"><span class="count-num" data-target="4.1" data-decimal="1">4.1</span><sup>×</sup></p><p class="proof-desc">Average return<br>on ad spend</p></div>
+    <div class="proof-stat" data-reveal data-delay="3"><p class="proof-num"><span class="count-num" data-target="99">99</span><sup>%</sup></p><p class="proof-desc">Dashboard uptime<br>— always watching</p></div>
   </div>
 </div>
 
@@ -1335,6 +1335,29 @@ const revObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
 },{threshold:0.1});
 document.querySelectorAll('[data-reveal]').forEach(el=>revObs.observe(el));
+
+/* ── Count-up animation ── */
+const countObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    const el=entry.target;
+    const target=parseFloat(el.dataset.target);
+    const decimals=parseInt(el.dataset.decimal||'0');
+    const duration=1600;
+    const startTime=performance.now();
+    function tick(now){
+      const progress=Math.min((now-startTime)/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      const val=eased*target;
+      el.textContent=decimals?val.toFixed(decimals):Math.floor(val);
+      if(progress<1) requestAnimationFrame(tick);
+      else el.textContent=decimals?target.toFixed(decimals):target;
+    }
+    requestAnimationFrame(tick);
+    countObs.unobserve(el);
+  });
+},{threshold:0.6});
+document.querySelectorAll('.count-num').forEach(el=>countObs.observe(el));
 
 /* ── Flow line progress ── */
 (function(){
