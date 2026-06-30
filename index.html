@@ -311,8 +311,8 @@
     @keyframes dot-ring { from{opacity:1;transform:scale(.8)} to{opacity:0;transform:scale(1.6)} }
     .flow-body { padding-top:0; }
     .flow-num { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:8px; }
-    .flow-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:400; color:var(--ink); margin-bottom:10px; letter-spacing:-.01em; }
-    .flow-why { font-size:16px; font-weight:400; color:var(--ink-mid); line-height:1.72; margin-bottom:8px; }
+    .flow-title { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--ink); margin-bottom:12px; letter-spacing:-.01em; }
+    .flow-why { font-size:16px; font-weight:400; color:var(--ink); line-height:1.72; margin-bottom:8px; }
     .flow-signal {
       font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em;
       color:var(--forest); padding:4px 0; border-top:1px solid var(--border); margin-top:14px;
@@ -452,17 +452,28 @@
     .contact-layout { display:grid; grid-template-columns:1fr 1fr; gap:80px; }
     .contact-body { font-size:16px; font-weight:400; color:var(--ink-mid); line-height:1.75; margin-top:20px; }
     .contact-meta { margin-top:24px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; color:var(--ink-dim); font-style:italic; }
-    .form-group { margin-bottom:18px; }
-    .form-label { display:block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:8px; }
+    .form-group { margin-bottom:22px; }
+    .form-label { display:block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:10px; }
     .form-input, .form-select, .form-textarea {
       width:100%; background:var(--bg-panel); border:1px solid var(--border-mid);
-      padding:12px 14px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:300; color:var(--ink);
+      padding:13px 15px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:400; color:var(--ink);
       outline:none; transition:border-color .18s; -webkit-appearance:none;
     }
     .form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--amber); }
-    .form-textarea { resize:vertical; min-height:100px; }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    .form-submit-row { display:flex; align-items:center; gap:16px; margin-top:24px; }
+    .form-input::placeholder, .form-textarea::placeholder { color:var(--ink-dim); opacity:1; }
+    .form-select.empty { color:var(--ink-dim); }
+    .form-textarea { resize:vertical; min-height:88px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-submit-row { display:flex; align-items:center; gap:16px; margin-top:28px; }
+    .form-divider {
+      display:flex; align-items:center; gap:14px;
+      margin:32px 0 28px; padding-top:32px; border-top:1px solid var(--border);
+    }
+    .form-divider-label {
+      font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--amber); white-space:nowrap;
+    }
+    .form-divider-rule { flex:1; height:1px; background:var(--border); }
     .form-status {
       display:flex; align-items:center; gap:7px;
       font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; color:var(--ink-dim);
@@ -966,35 +977,47 @@
       </div>
       <div data-reveal data-delay="1">
         <form id="contact-form" novalidate>
+
+          <!-- Section 1: Your details -->
           <div class="form-row">
             <div class="form-group"><label class="form-label">Your name</label><input class="form-input" name="name" type="text" placeholder="Jane Smith" required></div>
             <div class="form-group"><label class="form-label">Business name</label><input class="form-input" name="business" type="text" placeholder="Smith Plumbing" required></div>
           </div>
-          <div class="form-group">
-            <label class="form-label">What type of business?</label>
-            <select class="form-select" name="industry">
-              <option value="">Select your industry…</option>
-              <option>Trades &amp; Construction</option>
-              <option>Healthcare &amp; Dental</option>
-              <option>Hospitality &amp; Restaurant</option>
-              <option>Retail</option>
-              <option>Professional Services</option>
-              <option>Education</option>
-              <option>Other</option>
-            </select>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Type of business</label>
+              <select class="form-select empty" name="industry">
+                <option value="">Select industry…</option>
+                <option>Trades &amp; Construction</option>
+                <option>Healthcare &amp; Dental</option>
+                <option>Hospitality &amp; Restaurant</option>
+                <option>Retail</option>
+                <option>Professional Services</option>
+                <option>Education</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Email or WhatsApp</label><input class="form-input" name="contact" type="text" placeholder="jane@smith.co.za or 082 000 0000" required></div>
           </div>
-          <div class="form-group"><label class="form-label">Email or WhatsApp number</label><input class="form-input" name="contact" type="text" placeholder="jane@smith.co.za or 082 000 0000" required></div>
           <div class="form-group">
-            <label class="form-label">Which tier are you interested in?</label>
-            <select class="form-select" name="tier">
+            <label class="form-label">Tier interest</label>
+            <select class="form-select empty" name="tier">
               <option value="">Not sure yet — recommend one for me</option>
               <option>Foundation — R1,500/mo</option>
               <option>Growth — R3,200/mo</option>
               <option>Full Automation — R5,800/mo</option>
             </select>
           </div>
+
+          <!-- Divider -->
+          <div class="form-divider">
+            <span class="form-divider-label">Quick context — 30 seconds</span>
+            <span class="form-divider-rule"></span>
+          </div>
+
+          <!-- Section 2: Qualifying questions -->
           <div class="form-group">
-            <label class="form-label">Do you currently have a website?</label>
+            <label class="form-label">Do you have a website?</label>
             <div class="form-options">
               <div class="form-option"><input type="radio" name="website_status" id="ws1" value="No — need one built from scratch"><label for="ws1">No — need one built</label></div>
               <div class="form-option"><input type="radio" name="website_status" id="ws2" value="Yes — needs redesigning"><label for="ws2">Yes — needs redesigning</label></div>
@@ -1002,7 +1025,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">How do customers find you today? <em style="font-style:italic;text-transform:none;letter-spacing:0;font-size:9px;color:var(--ink-dim)">(pick all that apply)</em></label>
+            <label class="form-label">How do customers find you? <em style="font-style:italic;text-transform:none;letter-spacing:0;font-size:9px;color:var(--ink-dim)">(pick all that apply)</em></label>
             <div class="form-options">
               <div class="form-option"><input type="checkbox" name="lead_sources" id="ls1" value="Word of mouth"><label for="ls1">Word of mouth</label></div>
               <div class="form-option"><input type="checkbox" name="lead_sources" id="ls2" value="Walk-ins"><label for="ls2">Walk-ins</label></div>
@@ -1012,15 +1035,19 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">What's the main thing holding your business back?</label>
+            <label class="form-label">Biggest challenge right now?</label>
             <div class="form-options">
               <div class="form-option"><input type="radio" name="main_challenge" id="mc1" value="People can't find me online"><label for="mc1">People can't find me online</label></div>
-              <div class="form-option"><input type="radio" name="main_challenge" id="mc2" value="Leads come in but I don't follow up fast enough"><label for="mc2">Leads come in but I don't follow up fast enough</label></div>
-              <div class="form-option"><input type="radio" name="main_challenge" id="mc3" value="My online reputation needs work"><label for="mc3">My online reputation needs work</label></div>
-              <div class="form-option"><input type="radio" name="main_challenge" id="mc4" value="Too much admin, not enough automation"><label for="mc4">Too much admin, not enough automation</label></div>
+              <div class="form-option"><input type="radio" name="main_challenge" id="mc2" value="Leads come in but I don't follow up fast enough"><label for="mc2">Slow lead follow-up</label></div>
+              <div class="form-option"><input type="radio" name="main_challenge" id="mc3" value="My online reputation needs work"><label for="mc3">Reputation needs work</label></div>
+              <div class="form-option"><input type="radio" name="main_challenge" id="mc4" value="Too much admin, not enough automation"><label for="mc4">Too much manual admin</label></div>
             </div>
           </div>
-          <div class="form-group"><label class="form-label">Anything specific we should know? <em style="font-style:italic;text-transform:none;letter-spacing:0;font-size:9px;color:var(--ink-dim)">(optional)</em></label><textarea class="form-textarea" name="message" placeholder="E.g. I want a loyalty programme, I run two locations, seasonal business…" style="min-height:72px"></textarea></div>
+          <div class="form-group">
+            <label class="form-label">Anything specific to add? <em style="font-style:italic;text-transform:none;letter-spacing:0;font-size:9px;color:var(--ink-dim)">(optional)</em></label>
+            <textarea class="form-textarea" name="message" placeholder="E.g. loyalty programme, two locations, seasonal business…" style="min-height:72px"></textarea>
+          </div>
+
           <div class="form-submit-row">
             <button class="btn btn-forest" type="submit">Submit — get my recommendation</button>
             <div class="form-status" id="form-status"><span class="form-status-dot" id="status-dot"></span><span id="status-text">awaiting submission</span></div>
@@ -1192,6 +1219,15 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
     document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
     if(!isOpen)item.classList.add('open');
   });
+});
+
+/* ── Select placeholder colour ── */
+document.querySelectorAll('.form-select').forEach(sel => {
+  const update = () => {
+    if (sel.value) sel.classList.remove('empty');
+    else sel.classList.add('empty');
+  };
+  sel.addEventListener('change', update);
 });
 
 /* ── Contact form ── */
