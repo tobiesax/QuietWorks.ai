@@ -4,6 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuietWorks.ai — The quiet engine behind growing businesses</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23181412'/><text x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23B8832E' text-anchor='middle'>Q</text></svg>">
+
+  <!-- SEO -->
+  <meta name="description" content="QuietWorks builds websites, AI lead capture, and marketing automation for SMEs — running quietly in the background while you run your business.">
+  <meta name="author" content="QuietWorks">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quiet-works-ai.vercel.app/">
+  <meta property="og:title" content="QuietWorks — The quiet engine behind growing businesses">
+  <meta property="og:description" content="Websites, AI lead capture, and full marketing automation for SMEs. Three tiers. No long contracts. Results you can see.">
+  <meta property="og:image" content="https://quiet-works-ai.vercel.app/og-image.svg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="QuietWorks — The quiet engine behind growing businesses">
+  <meta name="twitter:description" content="Websites, AI lead capture, and full marketing automation for SMEs. Three tiers. No long contracts. Results you can see.">
+  <meta name="twitter:image" content="https://quiet-works-ai.vercel.app/og-image.svg">
+
+  <!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -587,7 +617,45 @@
       .problem-card-body,.price-features li,.faq-answer-inner,.about-detail-item{font-size:16px;line-height:1.75;}
       .faq-question{font-size:16px;}
       .form-input,.form-select,.form-textarea,.form-option label{font-size:16px;}
+      .nav-hamburger{display:flex;}
+      .mobile-nav{display:flex;}
+      .nav-cta{display:none;}
     }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display:none; flex-direction:column; justify-content:center; gap:5px;
+      background:none; border:none; cursor:pointer; padding:4px;
+      width:34px; height:34px; margin-left:16px; flex-shrink:0;
+    }
+    .nav-hamburger span {
+      display:block; width:22px; height:1.5px; background:var(--ink);
+      transition:transform .25s ease, opacity .2s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity:0; }
+    .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+    /* ── Mobile nav panel ── */
+    .mobile-nav {
+      display:none; flex-direction:column;
+      position:fixed; top:57px; left:0; right:0; z-index:98;
+      background:rgba(242,237,227,.97); backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border-mid);
+      padding:8px 0 28px;
+      transform:translateY(-6px); opacity:0; pointer-events:none;
+      transition:transform .25s ease, opacity .22s ease;
+    }
+    .mobile-nav.open { transform:translateY(0); opacity:1; pointer-events:auto; }
+    .mobile-nav-link {
+      display:block; font-family:'DM Sans',sans-serif; font-size:17px;
+      font-weight:400; color:var(--ink); text-decoration:none;
+      padding:15px 28px; border-bottom:1px solid var(--border);
+      transition:color .15s;
+    }
+    .mobile-nav-link:last-of-type { border-bottom:none; }
+    .mobile-nav-link:hover { color:var(--amber); }
+    .mobile-nav-cta { margin:20px 28px 0; }
   </style>
 </head>
 <body>
@@ -616,7 +684,20 @@
     <span>all systems operational</span>
   </div>
   <a class="btn btn-forest nav-cta" href="#contact">Book a Demo</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile menu">
+  <a class="mobile-nav-link" href="#how">How It Works</a>
+  <a class="mobile-nav-link" href="#pricing">Services</a>
+  <a class="mobile-nav-link" href="#cases">Case Studies</a>
+  <a class="mobile-nav-link" href="#about">About</a>
+  <a class="mobile-nav-link" href="#contact">Contact</a>
+  <a class="btn btn-forest mobile-nav-cta" href="#contact">Book a Demo</a>
+</div>
 
 <!-- HERO -->
 <section class="section-wrap">
@@ -1224,6 +1305,29 @@ setTimeout(()=>{
       }
     },280);
   },40000);
+})();
+
+/* ── Hamburger nav ── */
+(function(){
+  const btn = document.getElementById('nav-hamburger');
+  const panel = document.getElementById('mobile-nav');
+  if(!btn || !panel) return;
+  function close(){
+    btn.classList.remove('open');
+    panel.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+  btn.addEventListener('click',()=>{
+    const isOpen = panel.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  panel.querySelectorAll('.mobile-nav-link, .mobile-nav-cta').forEach(el=>{
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('click', e=>{
+    if(!btn.contains(e.target) && !panel.contains(e.target)) close();
+  });
 })();
 
 /* ── Scroll reveal ── */

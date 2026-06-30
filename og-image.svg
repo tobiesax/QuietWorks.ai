@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#181412"/>
+  <!-- Subtle grain texture suggestion via dots -->
+  <rect width="1200" height="630" fill="url(#grain)" opacity="0.03"/>
+  <defs>
+    <pattern id="grain" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.5" fill="#F2EDE3"/>
+    </pattern>
+  </defs>
+  <!-- Amber accent rule top-left -->
+  <rect x="80" y="200" width="36" height="2" fill="#B8832E"/>
+  <!-- Wordmark -->
+  <text x="80" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700" fill="#F2EDE3" letter-spacing="-2">Quiet</text>
+  <text x="374" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700" fill="#B8832E" letter-spacing="-2">Works</text>
+  <!-- Tagline -->
+  <text x="80" y="370" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="rgba(242,237,227,0.55)" letter-spacing="1">THE QUIET ENGINE BEHIND GROWING BUSINESSES</text>
+  <!-- Bottom label -->
+  <text x="80" y="548" font-family="'Courier New', monospace" font-size="15" fill="#B8832E" letter-spacing="2">QUIETWORKSAI.COM</text>
+  <!-- Decorative right element -->
+  <rect x="1060" y="80" width="1" height="470" fill="rgba(184,131,46,0.2)"/>
+  <rect x="1100" y="120" width="1" height="390" fill="rgba(184,131,46,0.1)"/>
+</svg>
