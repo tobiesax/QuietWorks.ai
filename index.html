@@ -596,32 +596,6 @@
     @keyframes fadeDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
     @keyframes fadeLeft { from{opacity:0;transform:translateX(22px)} to{opacity:1;transform:none} }
 
-    /* ── Responsive ── */
-    @media(max-width:960px){
-      nav{padding:16px 24px;}
-      .nav-links,.status-pill{display:none;}
-      .hero-inner{grid-template-columns:1fr;padding:48px 24px 56px;min-height:auto;gap:40px;}
-      .hero-visual{display:none;}
-      .inner{padding:0 24px;}
-      .proof-inner{grid-template-columns:1fr 1fr;padding:32px 24px;gap:28px 0;}
-      .proof-stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:0 0 28px;}
-      .proof-stat:nth-child(3),.proof-stat:nth-child(4){border-bottom:none;padding-top:28px;}
-      .problem-layout,.how-header,.faq-layout,.about-layout,.contact-layout,.cta-layout{grid-template-columns:1fr;gap:32px;}
-      .price-grid{grid-template-columns:1fr;}
-      .price-card{border-right:none;border-bottom:1px solid var(--border-mid);}
-      .price-card:last-child{border-bottom:none;}
-      .cases-grid{grid-template-columns:1fr;}
-      .footer-inner{flex-direction:column;gap:20px;text-align:center;}
-      .footer-links{flex-wrap:wrap;justify-content:center;}
-      .hero-sub,.problem-body,.how-sub,.flow-why,.price-desc,.case-body,.about-body,.contact-body{font-size:17px;line-height:1.8;}
-      .problem-card-body,.price-features li,.faq-answer-inner,.about-detail-item{font-size:16px;line-height:1.75;}
-      .faq-question{font-size:16px;}
-      .form-input,.form-select,.form-textarea,.form-option label{font-size:16px;}
-      .nav-hamburger{display:flex;}
-      .mobile-nav{display:flex;}
-      .nav-cta{display:none;}
-    }
-
     /* ── Hamburger ── */
     .nav-hamburger {
       display:none; flex-direction:column; justify-content:center; gap:5px;
@@ -656,6 +630,32 @@
     .mobile-nav-link:last-of-type { border-bottom:none; }
     .mobile-nav-link:hover { color:var(--amber); }
     .mobile-nav-cta { margin:20px 28px 0; }
+
+    /* ── Responsive ── */
+    @media(max-width:960px){
+      nav{padding:16px 24px;}
+      .nav-links,.status-pill{display:none;}
+      .nav-hamburger{display:flex;}
+      .mobile-nav{display:flex;}
+      .nav-cta{display:none;}
+      .hero-inner{grid-template-columns:1fr;padding:48px 24px 56px;min-height:auto;gap:40px;}
+      .hero-visual{display:none;}
+      .inner{padding:0 24px;}
+      .proof-inner{grid-template-columns:1fr 1fr;padding:32px 24px;gap:28px 0;}
+      .proof-stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding:0 0 28px;}
+      .proof-stat:nth-child(3),.proof-stat:nth-child(4){border-bottom:none;padding-top:28px;}
+      .problem-layout,.how-header,.faq-layout,.about-layout,.contact-layout,.cta-layout{grid-template-columns:1fr;gap:32px;}
+      .price-grid{grid-template-columns:1fr;}
+      .price-card{border-right:none;border-bottom:1px solid var(--border-mid);}
+      .price-card:last-child{border-bottom:none;}
+      .cases-grid{grid-template-columns:1fr;}
+      .footer-inner{flex-direction:column;gap:20px;text-align:center;}
+      .footer-links{flex-wrap:wrap;justify-content:center;}
+      .hero-sub,.problem-body,.how-sub,.flow-why,.price-desc,.case-body,.about-body,.contact-body{font-size:17px;line-height:1.8;}
+      .problem-card-body,.price-features li,.faq-answer-inner,.about-detail-item{font-size:16px;line-height:1.75;}
+      .faq-question{font-size:16px;}
+      .form-input,.form-select,.form-textarea,.form-option label{font-size:16px;}
+    }
   </style>
 </head>
 <body>
