@@ -91,6 +91,7 @@
     .inner { max-width: 1200px; margin: 0 auto; padding: 0 56px; }
 
     .mono { font-family:'IBM Plex Mono',monospace; }
+    .mono-label { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; color:var(--ink-dim); }
     .s-eyebrow {
       font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.14em;
       text-transform:uppercase; color:var(--amber);
@@ -413,6 +414,8 @@
     .price-cta.outline:hover { border-color:var(--forest); color:var(--forest); }
     .price-cta.solid { background:var(--forest); color:#fff; }
     .price-cta.solid:hover { background:var(--forest-mid); }
+    .price-cta.amber-outline { border:1px solid rgba(224,123,34,.45); color:var(--amber); }
+    .price-cta.amber-outline:hover { border-color:var(--amber); background:rgba(224,123,34,.06); }
     .price-grid-note { margin-top:16px; font-size:12px; color:var(--ink-dim); text-align:center; font-family:'IBM Plex Mono',monospace; letter-spacing:.04em; }
 
     /* ══════════════════════════
@@ -467,7 +470,7 @@
       max-height:0; overflow:hidden;
       transition:max-height .3s ease, padding .3s ease;
     }
-    .faq-item.open .faq-answer { max-height:240px; }
+    .faq-item.open .faq-answer { max-height:600px; }
     .faq-answer-inner { padding:0 0 20px; font-size:16px; font-weight:400; color:var(--ink-mid); line-height:1.75; }
 
     /* ══════════════════════════
@@ -565,9 +568,10 @@
     .footer-wm span { color:var(--amber); }
     .footer-links { list-style:none; display:flex; gap:24px; }
     .footer-links a { font-size:12px; color:rgba(242,237,227,.28); text-decoration:none; transition:color .18s; }
-    .footer-links a:hover { color:rgba(242,237,227,.6); }
+    .footer-links a:hover { color:var(--amber); }
     .footer-status { display:flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.08em; color:rgba(40,99,84,.9); }
     .footer-status-dot { width:5px; height:5px; background:#3B6354; border-radius:50%; animation:pip 2.4s ease-in-out infinite; }
+    .footer-copy { text-align:center; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.06em; color:rgba(242,237,227,.16); margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,.04); }
 
     /* ── What We Automate grid ── */
     .automate { padding:72px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg); }
@@ -724,6 +728,7 @@
       .cases-grid{grid-template-columns:1fr;}
       .footer-inner{flex-direction:column;gap:20px;text-align:center;}
       .footer-links{flex-wrap:wrap;justify-content:center;}
+      .footer-copy{font-size:9px;}
       .hero-sub,.problem-body,.how-sub,.flow-why,.price-desc,.case-body,.about-body,.contact-body{font-size:17px;line-height:1.8;}
       .problem-card-body,.price-features li,.faq-answer-inner,.about-detail-item{font-size:16px;line-height:1.75;}
       .faq-question{font-size:16px;}
@@ -1134,7 +1139,7 @@
           <li><svg class="chk f" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority same-day website support</li>
           <li><svg class="chk f" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority account support</li>
         </ul>
-        <a class="price-cta outline" href="#contact">Start with Full Automation</a>
+        <a class="price-cta amber-outline" href="#contact">Start with Full Automation</a>
         <p class="price-footer-note">Best for: Businesses ready to scale without scaling their workload.</p>
       </div>
 
@@ -1372,10 +1377,11 @@
 <footer>
   <div class="inner">
     <div class="footer-inner">
-      <a class="footer-wm" href="/">QuietWorks<span>.</span></a>
+      <a class="footer-wm" href="/">Quiet<span>Works.</span></a>
       <ul class="footer-links">
         <li><a href="#how">How It Works</a></li>
         <li><a href="#pricing">Services</a></li>
+        <li><a href="#cases">Case Studies</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1385,6 +1391,7 @@
         all systems operational
       </div>
     </div>
+    <p class="footer-copy">© 2025 QuietWorks — business process automation for South African SMEs</p>
   </div>
 </footer>
 
