@@ -146,7 +146,7 @@
       padding:16px 56px; border-bottom:1px solid var(--border-mid);
       animation:fadeDown .5s ease-out both;
     }
-    .wordmark { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; letter-spacing:.06em; color:var(--ink); text-decoration:none; margin-right:auto; display:flex; flex-direction:column; align-items:flex-start; gap:3px; }
+    .wordmark { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; letter-spacing:.06em; color:var(--ink); text-decoration:none; margin-right:auto; display:flex; flex-direction:column; align-items:flex-start; gap:1px; }
     .wordmark-tagline { font-family:'DM Sans',sans-serif; font-size:9.5px; letter-spacing:.04em; color:var(--ink-dim); font-weight:300; line-height:1; }
     .wordmark-dot { color:var(--amber); }
     .wordmark-works { color:var(--amber); }
@@ -563,13 +563,19 @@
     /* ══════════════════════════
        FOOTER
     ══════════════════════════ */
-    footer { background:var(--bg-dark); border-top:1px solid rgba(255,255,255,.06); padding:32px 0; }
+    footer { background:var(--bg-dark); border-top:1px solid rgba(255,255,255,.06); padding:36px 0; }
     .footer-inner { display:flex; align-items:center; justify-content:space-between; }
-    .footer-wm { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; letter-spacing:.06em; color:rgba(242,237,227,.5); text-decoration:none; }
-    .footer-wm span { color:var(--amber); }
+    .footer-wm { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:500; letter-spacing:.06em; color:rgba(242,237,227,.5); text-decoration:none; display:flex; flex-direction:column; align-items:flex-start; gap:3px; }
+    .footer-wm-name span { color:var(--amber); }
+    .footer-wm-tagline { font-family:'DM Sans',sans-serif; font-size:8.5px; letter-spacing:.04em; color:rgba(242,237,227,.22); font-weight:300; line-height:1; }
     .footer-links { list-style:none; display:flex; gap:24px; }
     .footer-links a { font-size:12px; color:rgba(242,237,227,.28); text-decoration:none; transition:color .18s; }
     .footer-links a:hover { color:var(--amber); }
+    .footer-right { display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+    .footer-social { display:flex; align-items:center; gap:18px; }
+    .footer-social a { color:rgba(242,237,227,.25); text-decoration:none; display:flex; align-items:center; transition:color .18s; }
+    .footer-social a:hover { color:var(--amber); }
+    .footer-social svg { width:15px; height:15px; }
     .footer-status { display:flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.08em; color:rgba(40,99,84,.9); }
     .footer-status-dot { width:5px; height:5px; background:#3B6354; border-radius:50%; animation:pip 2.4s ease-in-out infinite; }
     .footer-copy { text-align:center; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.06em; color:rgba(242,237,227,.16); margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,.04); }
@@ -758,8 +764,10 @@
       .price-card{border-right:none;border-bottom:1px solid var(--border-mid);}
       .price-card:last-child{border-bottom:none;}
       .cases-grid{grid-template-columns:1fr;}
-      .footer-inner{flex-direction:column;gap:20px;text-align:center;}
+      .footer-inner{flex-direction:column;gap:24px;text-align:center;}
+      .footer-wm{align-items:center;}
       .footer-links{flex-wrap:wrap;justify-content:center;}
+      .footer-right{align-items:center;}
       .footer-copy{font-size:9px;}
       .hero-sub,.problem-body,.how-sub,.flow-why,.price-desc,.case-body,.about-body,.contact-body{font-size:17px;line-height:1.8;}
       .problem-card-body,.price-features li,.faq-answer-inner,.about-detail-item{font-size:16px;line-height:1.75;}
@@ -1423,7 +1431,10 @@
 <footer>
   <div class="inner">
     <div class="footer-inner">
-      <a class="footer-wm" href="/">Quiet<span>Works.</span></a>
+      <a class="footer-wm" href="/">
+        <span class="footer-wm-name">Quiet<span>Works.</span></span>
+        <span class="footer-wm-tagline">automation that works while you sleep.</span>
+      </a>
       <ul class="footer-links">
         <li><a href="#how">How It Works</a></li>
         <li><a href="#pricing">Services</a></li>
@@ -1432,9 +1443,25 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="footer-status">
-        <span class="footer-status-dot"></span>
-        all systems operational
+      <div class="footer-right">
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+        </div>
+        <div class="footer-status">
+          <span class="footer-status-dot"></span>
+          all systems operational
+        </div>
       </div>
     </div>
     <p class="footer-copy">© 2025 QuietWorks — business process automation for South African SMEs</p>
