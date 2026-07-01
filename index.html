@@ -146,7 +146,8 @@
       padding:16px 56px; border-bottom:1px solid var(--border-mid);
       animation:fadeDown .5s ease-out both;
     }
-    .wordmark { font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; letter-spacing:.06em; color:var(--ink); text-decoration:none; margin-right:auto; }
+    .wordmark { font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; letter-spacing:.06em; color:var(--ink); text-decoration:none; margin-right:auto; display:flex; flex-direction:column; align-items:flex-start; gap:2px; }
+    .wordmark-tagline { font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:.09em; color:var(--ink-dim); font-weight:400; line-height:1; }
     .wordmark-dot { color:var(--amber); }
     .wordmark-works { color:var(--amber); }
     .nav-links { list-style:none; display:flex; align-items:center; gap:28px; }
@@ -780,7 +781,10 @@
 
 <!-- NAV -->
 <nav>
-  <a class="wordmark" href="/">Quiet<span class="wordmark-works">Works</span><span class="wordmark-dot">.</span></a>
+  <a class="wordmark" href="/">
+    <span>Quiet<span class="wordmark-works">Works</span><span class="wordmark-dot">.</span></span>
+    <span class="wordmark-tagline">automation that works while you sleep.</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
     <li><a href="#pricing">Services</a></li>
