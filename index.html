@@ -638,6 +638,37 @@
         0 4px 8px rgba(0,0,0,.18);
     }
 
+    /* ── About headshot ── */
+    .about-photo-wrap {
+      position:relative; margin-bottom:16px;
+    }
+    .about-photo-wrap::before {
+      content:''; position:absolute; top:-1px; left:-1px; z-index:1;
+      width:14px; height:14px;
+      border-top:2px solid var(--amber); border-left:2px solid var(--amber);
+    }
+    .about-photo-wrap::after {
+      content:''; position:absolute; bottom:-1px; right:-1px; z-index:1;
+      width:14px; height:14px;
+      border-bottom:2px solid var(--amber); border-right:2px solid var(--amber);
+    }
+    .about-photo {
+      width:100%; display:block;
+      aspect-ratio:4/3; object-fit:cover; object-position:center 18%;
+    }
+
+    /* ── Case study screenshots ── */
+    .case-img-wrap {
+      margin:-32px -28px 22px; overflow:hidden;
+      border-bottom:1px solid var(--border); position:relative;
+    }
+    .case-img {
+      width:100%; display:block; height:190px;
+      object-fit:cover; object-position:top left;
+      transition:transform .45s ease;
+    }
+    .case-card:hover .case-img { transform:scale(1.03); }
+
     /* ── Dot grid texture ── */
     .problem { background-image:radial-gradient(circle, rgba(24,20,18,.055) 1px, transparent 1px); background-size:30px 30px; }
     .about { background-image:radial-gradient(circle, rgba(24,20,18,.055) 1px, transparent 1px); background-size:30px 30px; }
@@ -1157,6 +1188,9 @@
     </div>
     <div class="cases-grid">
       <div class="case-card" data-reveal>
+        <div class="case-img-wrap">
+          <img src="images/hog.png" alt="House of Grace website" class="case-img">
+        </div>
         <p class="case-industry">Beauty &amp; Wellness</p>
         <h3 class="case-headline">Beauty studio moves from Instagram DMs to a site that captures bookings around the clock</h3>
         <p class="case-body">House of Grace was running their entire client pipeline through social media — every booking a manual DM, every enquiry a back-and-forth conversation. We built a brand-led website with a streamlined enquiry flow so the studio now captures and responds to leads automatically, day and night.</p>
@@ -1166,6 +1200,9 @@
         </a>
       </div>
       <div class="case-card" data-reveal data-delay="1">
+        <div class="case-img-wrap">
+          <img src="images/etudier.png" alt="Étudier International lead qualifier" class="case-img">
+        </div>
         <p class="case-industry">Education &amp; Tutoring</p>
         <h3 class="case-headline">International education platform cuts lead response time from hours to seconds with AI</h3>
         <p class="case-body">Étudier International was manually screening every student application — a slow process that let the right prospects go cold. We built an AI-powered lead qualifier that scores, routes, and responds to student enquiries the moment they arrive. The team now only handles pre-qualified applicants.</p>
@@ -1246,13 +1283,18 @@
           <p>Every workflow here has been tested on real businesses before it ever reached a client. There's no off-the-shelf software being resold — it's systems that were built because the available tools weren't good enough.</p>
         </div>
       </div>
-      <div class="about-detail" data-reveal data-delay="1">
+      <div data-reveal data-delay="1">
+      <div class="about-photo-wrap">
+        <img src="images/tobi.png" alt="Tobi — founder of QuietWorks" class="about-photo">
+      </div>
+      <div class="about-detail">
         <p class="about-detail-label">What shapes how we build</p>
         <div class="about-detail-item"><span class="about-detail-dot"></span>Every system tested on real client businesses before it's offered as a service</div>
         <div class="about-detail-item"><span class="about-detail-dot"></span>Pricing that reflects what SMEs can actually sustain, not what agencies charge</div>
         <div class="about-detail-item"><span class="about-detail-dot"></span>Built for the SA market — local SEO, local payment methods, local support hours</div>
         <div class="about-detail-item"><span class="about-detail-dot"></span>No long-term contracts because the work should speak for itself every month</div>
         <div class="about-detail-item"><span class="about-detail-dot"></span>You're interrupted only when it's genuinely worth your attention</div>
+      </div>
       </div>
     </div>
   </div>
