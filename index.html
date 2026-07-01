@@ -567,6 +567,38 @@
     .footer-status { display:flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.08em; color:rgba(40,99,84,.9); }
     .footer-status-dot { width:5px; height:5px; background:#3B6354; border-radius:50%; animation:pip 2.4s ease-in-out infinite; }
 
+    /* ── What We Automate grid ── */
+    .automate { padding:72px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg); }
+    .automate-header { text-align:center; margin-bottom:48px; }
+    .automate-label { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:14px; }
+    .automate-label::before,.automate-label::after { content:''; display:block; width:28px; height:1px; background:var(--amber); opacity:.5; }
+    .automate-title { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,2.2vw,30px); font-weight:300; color:var(--ink); letter-spacing:-.01em; }
+    .automate-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+    .automate-item {
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      padding:32px 20px; border:1px solid var(--border); margin:-1px 0 0 -1px;
+      transition:border-color .2s, background .2s;
+      cursor:default;
+    }
+    .automate-item:hover { border-color:var(--amber); background:var(--bg-panel); z-index:1; position:relative; }
+    .automate-icon { width:36px; height:36px; color:var(--amber); margin-bottom:14px; flex-shrink:0; }
+    .automate-name { font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; color:var(--ink); letter-spacing:.01em; }
+    .automate-sub { font-size:11.5px; color:var(--ink-dim); margin-top:4px; line-height:1.5; }
+
+    /* ── Problem card icons ── */
+    .problem-icon { width:32px; height:32px; color:var(--amber); margin-bottom:14px; }
+
+    /* ── Flow step icons ── */
+    .flow-icon { width:28px; height:28px; color:var(--amber); margin-bottom:12px; }
+
+    /* ── Pricing card icons ── */
+    .price-icon { width:32px; height:32px; color:var(--forest); margin-bottom:16px; }
+    .price-card.featured .price-icon { color:var(--amber); }
+
+    /* ── Dot grid texture ── */
+    .problem { background-image:radial-gradient(circle, rgba(24,20,18,.055) 1px, transparent 1px); background-size:30px 30px; }
+    .about { background-image:radial-gradient(circle, rgba(24,20,18,.055) 1px, transparent 1px); background-size:30px 30px; }
+
     /* ── WhatsApp float ── */
     .wa-float {
       position:fixed; bottom:28px; right:28px; z-index:998;
@@ -638,6 +670,8 @@
       .nav-hamburger{display:flex;}
       .mobile-nav{display:flex;}
       .nav-cta{display:none;}
+      .automate-grid{grid-template-columns:repeat(2,1fr);}
+      .automate-item{padding:24px 16px;}
       .hero-inner{grid-template-columns:1fr;padding:48px 24px 56px;min-height:auto;gap:40px;}
       .hero-visual{display:none;}
       .inner{padding:0 24px;}
@@ -797,6 +831,84 @@
   </div>
 </div>
 
+<!-- WHAT WE AUTOMATE -->
+<section class="automate section-wrap">
+  <div class="inner">
+    <div class="automate-header" data-reveal>
+      <p class="automate-label">what we automate</p>
+      <p class="automate-title">Every manual task your business runs on — replaced with a system.</p>
+    </div>
+    <div class="automate-grid">
+
+      <div class="automate-item" data-reveal>
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+        </svg>
+        <span class="automate-name">Website &amp; Online Store</span>
+        <span class="automate-sub">Fast, mobile-first, built to convert</span>
+      </div>
+
+      <div class="automate-item" data-reveal data-delay="1">
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <path d="M12 8v4M10 10h4"/>
+        </svg>
+        <span class="automate-name">Lead Follow-up</span>
+        <span class="automate-sub">Instant, personalised, automatic</span>
+      </div>
+
+      <div class="automate-item" data-reveal data-delay="2">
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h2M12 14h.01M16 14h.01M8 18h2M12 18h.01"/>
+        </svg>
+        <span class="automate-name">Booking Confirmations</span>
+        <span class="automate-sub">Sent the moment a booking is made</span>
+      </div>
+
+      <div class="automate-item" data-reveal data-delay="3">
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="automate-name">Order Processing</span>
+        <span class="automate-sub">WhatsApp &amp; online orders, handled</span>
+      </div>
+
+      <div class="automate-item" data-reveal>
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span class="automate-name">Review Responses</span>
+        <span class="automate-sub">Reputation managed, round the clock</span>
+      </div>
+
+      <div class="automate-item" data-reveal data-delay="1">
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+        <span class="automate-name">Paid Ad Management</span>
+        <span class="automate-sub">Google &amp; Meta, client budget separate</span>
+      </div>
+
+      <div class="automate-item" data-reveal data-delay="2">
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 7.7 3.18 2 2 0 0 1 9.88 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L14 8.91a16 16 0 0 0 6.09 6.09l1.08-1.08a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span class="automate-name">WhatsApp Automation</span>
+        <span class="automate-sub">Orders, enquiries &amp; follow-ups via chat</span>
+      </div>
+
+      <div class="automate-item" data-reveal data-delay="3">
+        <svg class="automate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <span class="automate-name">Reporting &amp; Dashboards</span>
+        <span class="automate-sub">Live visibility, no manual reports</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- PROBLEM -->
 <section class="problem section-wrap">
   <div class="inner">
@@ -815,16 +927,19 @@
       <div>
         <div class="problem-cards">
           <div class="problem-card" data-reveal>
+            <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/></svg>
             <span class="problem-card-num">01</span>
             <p class="problem-card-title">Slow response, lost leads</p>
             <p class="problem-card-body">Most enquiries go cold within an hour of being ignored. Speed isn't a nice-to-have — it's usually the only difference between winning and losing the job.</p>
           </div>
           <div class="problem-card" data-reveal data-delay="1">
+            <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
             <span class="problem-card-num">02</span>
             <p class="problem-card-title">No visibility</p>
             <p class="problem-card-body">You find out how your marketing performed weeks later, if at all — a PDF with metrics that don't tell you what to do next.</p>
           </div>
           <div class="problem-card" data-reveal data-delay="2">
+            <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="11" y1="11" x2="11.01" y2="11"/></svg>
             <span class="problem-card-num">03</span>
             <p class="problem-card-title">One-size-fits-all pricing</p>
             <p class="problem-card-body">Paying agency rates for a package built around enterprise clients. You're covering services you don't use, goals you don't have.</p>
@@ -853,6 +968,7 @@
         <div class="flow-step" data-step="0">
           <div class="flow-marker"><div class="flow-dot" data-dot></div></div>
           <div class="flow-body" data-reveal>
+            <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
             <span class="flow-num">Step 01 — Foundation</span>
             <h3 class="flow-title">We build your digital presence</h3>
             <p class="flow-why">A website, online store, or booking system — the digital infrastructure your entire automation runs on. Fast, mobile-first, and built around the specific outcomes your business needs, not a generic template.</p>
@@ -863,6 +979,7 @@
         <div class="flow-step" data-step="1">
           <div class="flow-marker"><div class="flow-dot" data-dot></div></div>
           <div class="flow-body" data-reveal data-delay="1">
+            <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg>
             <span class="flow-num">Step 02 — Process Audit</span>
             <h3 class="flow-title">We map every manual task costing you time</h3>
             <p class="flow-why">Every follow-up you type by hand. Every order taken on WhatsApp. Every booking confirmation sent individually. Every review you mean to respond to. We document all of it — because you can't automate what you haven't identified.</p>
@@ -873,6 +990,7 @@
         <div class="flow-step" data-step="2">
           <div class="flow-marker"><div class="flow-dot" data-dot></div></div>
           <div class="flow-body" data-reveal data-delay="1">
+            <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             <span class="flow-num">Step 03 — Automation Build</span>
             <h3 class="flow-title">Every manual task gets an automated replacement</h3>
             <p class="flow-why">Lead responses, order confirmations, booking reminders, review replies, follow-up sequences — each one becomes a system that triggers, runs, and completes without anyone lifting a finger. Built once. Runs indefinitely.</p>
@@ -883,6 +1001,7 @@
         <div class="flow-step" data-step="3">
           <div class="flow-marker"><div class="flow-dot" data-dot></div></div>
           <div class="flow-body" data-reveal data-delay="1">
+            <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span class="flow-num">Step 04 — 24/7 Operation</span>
             <h3 class="flow-title">Your business operates around the clock</h3>
             <p class="flow-why">A customer enquires at 10pm — they get a response at 10pm. An order placed Sunday morning is confirmed immediately. A lead from a Google ad at midnight gets followed up before your competitors open on Monday.</p>
@@ -893,6 +1012,7 @@
         <div class="flow-step" data-step="4">
           <div class="flow-marker"><div class="flow-dot" data-dot></div></div>
           <div class="flow-body" data-reveal data-delay="1">
+            <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             <span class="flow-num">Step 05 — In Control</span>
             <h3 class="flow-title">Interrupted only when it's worth it</h3>
             <p class="flow-why">Hot leads, urgent orders, reviews needing a personal touch — you get a direct alert. Everything routine keeps running without you. You run your business. The system handles the rest.</p>
@@ -916,6 +1036,7 @@
     <div class="price-grid" data-reveal>
 
       <div class="price-card">
+        <svg class="price-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <p class="price-tier">Tier 01</p>
         <p class="price-name">Foundation</p>
         <p class="price-tagline">Your business, online and findable.</p>
@@ -937,6 +1058,7 @@
       </div>
 
       <div class="price-card featured">
+        <svg class="price-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         <p class="price-tier">Tier 02 — Most popular</p>
         <p class="price-name">Growth</p>
         <p class="price-tagline">Every enquiry, captured and qualified — automatically.</p>
@@ -957,6 +1079,7 @@
       </div>
 
       <div class="price-card full-auto">
+        <svg class="price-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         <p class="price-tier">Tier 03</p>
         <p class="price-name">Full Automation</p>
         <p class="price-tagline">Your growth engine, fully running.</p>
