@@ -120,6 +120,8 @@
     .btn-forest:hover { background:var(--forest-mid); transform:translateY(-1px); }
     .btn-parchment { background:#F2EDE3; color:var(--bg-dark); }
     .btn-parchment:hover { background:#fff; transform:translateY(-1px); }
+    .btn-amber { background:var(--amber); color:#fff; }
+    .btn-amber:hover { background:#c96a15; transform:translateY(-1px); }
     .btn .arrow { transition:transform .2s; }
     .btn:hover .arrow { transform:translateX(4px); }
     .link-ghost { font-size:14px; color:var(--ink-dim); text-decoration:none; border-bottom:1px solid var(--border-mid); padding-bottom:2px; transition:color .18s,border-color .18s; display:inline-flex; align-items:center; gap:6px; }
@@ -550,7 +552,7 @@
     }
     .cta-layout { position:relative; z-index:1; display:grid; grid-template-columns:1fr auto; align-items:center; gap:64px; }
     .cta-head { font-family:'Cormorant Garamond',serif; font-size:clamp(38px,4.5vw,64px); font-weight:300; line-height:1.07; color:#F2EDE3; letter-spacing:-.025em; margin-bottom:14px; }
-    .cta-head em { font-style:italic; color:rgba(242,237,227,.45); }
+    .cta-head em { font-style:italic; color:var(--amber); }
     .cta-sub { font-size:14.5px; font-weight:300; color:rgba(242,237,227,.4); line-height:1.7; max-width:460px; }
     .cta-btns { display:flex; flex-direction:column; gap:12px; flex-shrink:0; }
 
@@ -1356,7 +1358,7 @@
         <p class="cta-sub" data-reveal data-delay="1">Start with Foundation. Add layers when the results give you confidence. No long contracts, no opaque reporting — just a system working quietly in your corner.</p>
       </div>
       <div class="cta-btns" data-reveal data-delay="2">
-        <a class="btn btn-parchment" href="#contact">
+        <a class="btn btn-amber" href="#contact">
           Get Your Free Growth Audit
           <svg class="arrow" width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1370,7 +1372,7 @@
 <footer>
   <div class="inner">
     <div class="footer-inner">
-      <a class="footer-wm" href="/">QuietWorks<span>.</span>ai</a>
+      <a class="footer-wm" href="/">QuietWorks<span>.</span></a>
       <ul class="footer-links">
         <li><a href="#how">How It Works</a></li>
         <li><a href="#pricing">Services</a></li>
