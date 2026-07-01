@@ -632,20 +632,21 @@
         0 6px 18px rgba(180,148,28,.28),
         0 2px 5px rgba(0,0,0,.14);
     }
-    .automate-item .icon-3d { margin-bottom:14px; animation:icon-float 3s ease-in-out infinite; }
-    .automate-item:nth-child(1) .icon-3d { animation-delay:0s; }
-    .automate-item:nth-child(2) .icon-3d { animation-delay:-.375s; }
-    .automate-item:nth-child(3) .icon-3d { animation-delay:-.75s; }
-    .automate-item:nth-child(4) .icon-3d { animation-delay:-1.125s; }
-    .automate-item:nth-child(5) .icon-3d { animation-delay:-1.5s; }
-    .automate-item:nth-child(6) .icon-3d { animation-delay:-1.875s; }
-    .automate-item:nth-child(7) .icon-3d { animation-delay:-2.25s; }
-    .automate-item:nth-child(8) .icon-3d { animation-delay:-2.625s; }
+    .automate-item .icon-3d { margin-bottom:14px; }
+    .automate-item .icon-3d svg { animation:icon-breathe 3.2s ease-in-out infinite; }
+    .automate-item:nth-child(1) .icon-3d svg { animation-delay:0s; }
+    .automate-item:nth-child(2) .icon-3d svg { animation-delay:-.4s; }
+    .automate-item:nth-child(3) .icon-3d svg { animation-delay:-.8s; }
+    .automate-item:nth-child(4) .icon-3d svg { animation-delay:-1.2s; }
+    .automate-item:nth-child(5) .icon-3d svg { animation-delay:-1.6s; }
+    .automate-item:nth-child(6) .icon-3d svg { animation-delay:-2.0s; }
+    .automate-item:nth-child(7) .icon-3d svg { animation-delay:-2.4s; }
+    .automate-item:nth-child(8) .icon-3d svg { animation-delay:-2.8s; }
+    .automate-item:hover .icon-3d svg { animation:none; }
     .flow-body .icon-3d    { margin-bottom:12px; }
     .problem-card .icon-3d { margin-bottom:14px; }
     .price-card .icon-3d   { margin-bottom:16px; }
     .automate-item:hover .icon-3d {
-      animation:none;
       transform:translateY(-3px);
       box-shadow:
         inset 0 1.5px 0 rgba(255,255,255,.28),
@@ -715,7 +716,7 @@
 
     /* ── Keyframes ── */
     @keyframes fadeUp   { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
-    @keyframes icon-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+    @keyframes icon-breathe { 0%,100%{transform:scale(1);opacity:.92} 50%{transform:scale(1.13);opacity:1} }
     @keyframes fadeDown { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
     @keyframes fadeLeft { from{opacity:0;transform:translateX(22px)} to{opacity:1;transform:none} }
 
@@ -1210,9 +1211,6 @@
     </div>
     <div class="cases-grid">
       <div class="case-card" data-reveal>
-        <div class="case-img-wrap">
-          <img src="images/hog.png" alt="House of Grace website" class="case-img">
-        </div>
         <p class="case-industry">Beauty &amp; Wellness</p>
         <h3 class="case-headline">Beauty studio moves from Instagram DMs to a site that captures bookings around the clock</h3>
         <p class="case-body">House of Grace was running their entire client pipeline through social media — every booking a manual DM, every enquiry a back-and-forth conversation. We built a brand-led website with a streamlined enquiry flow so the studio now captures and responds to leads automatically, day and night.</p>
@@ -1222,9 +1220,6 @@
         </a>
       </div>
       <div class="case-card" data-reveal data-delay="1">
-        <div class="case-img-wrap">
-          <img src="images/etudier.png" alt="Étudier International lead qualifier" class="case-img">
-        </div>
         <p class="case-industry">Education &amp; Tutoring</p>
         <h3 class="case-headline">International education platform cuts lead response time from hours to seconds with AI</h3>
         <p class="case-body">Étudier International was manually screening every student application — a slow process that let the right prospects go cold. We built an AI-powered lead qualifier that scores, routes, and responds to student enquiries the moment they arrive. The team now only handles pre-qualified applicants.</p>
